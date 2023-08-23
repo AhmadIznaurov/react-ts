@@ -1,22 +1,59 @@
 import React, {FC} from 'react';
 
-// type PropsTitle = {
-//     title: string,
-//     text?: string // This sign '?' shows us if we will add next type and won't be used, we need to use this sign '?'
-// }
-interface PropsTitle  {
-    title: string,
-    text?: string // This sign '?' shows us if we will add next type and won't be used, we need to use this sign '?'
+
+
+export const App: FC = () => {
+
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+        console.log(e.currentTarget)
+    }
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+        console.log('submitted')
+    }
+    return (
+        <>
+            <form
+            onSubmit={handleSubmit}
+            >
+                Some easy form text
+                <input
+                    onFocus={handleFocus}
+                    type="text"
+                    name='text'
+                />
+                <br/>
+                <button type='submit'>submit</button>
+            </form>
+        </>
+    )
+
+
 }
 
 
-// const Title: FC<{title: string}> = ({title}) => <h1>{title}</h1> Using functional components with generic
-// const Title = ({title}: PropsTitle) => <h1>{title}</h1> Using type without generic
 
 
 
-const Title: FC<PropsTitle> = ({title} ) => <h1>{title}</h1> // Using type inside FC with generic
 
-export const App: FC = () => <Title title='HELLO TYPESCRIPT'/>
+
+
+// export const App: FC = () => {
+//
+//     const [count, setCount] = useState(0);
+//     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+//         console.log(e.clientX, e.clientY)
+//         setCount(count +1)
+//     }
+//
+//     return (
+//         <>
+//         <h1>Counter</h1>
+//             <h2>{count}</h2>
+//             <button onClick={(e) => handleClick(e)}>plusOne</button>
+//         </>
+//     )
+// }
 
 
