@@ -1,17 +1,22 @@
-import React from 'react';
-import './index.css';
+import React, {FC} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-<h1>HELLO TYPESCRIPT LEARNERS </h1>
-      <p>If you want to be best in ts you need practice day by day and also <br/>
-      read the documentation and understand it through the practice
-      </p>
-    </div>
-  );
+// type PropsTitle = {
+//     title: string,
+//     text?: string // This sign '?' shows us if we will add next type and won't be used, we need to use this sign '?'
+// }
+interface PropsTitle  {
+    title: string,
+    text?: string // This sign '?' shows us if we will add next type and won't be used, we need to use this sign '?'
 }
 
-export default App;
 
-// ts
+// const Title: FC<{title: string}> = ({title}) => <h1>{title}</h1> Using functional components with generic
+// const Title = ({title}: PropsTitle) => <h1>{title}</h1> Using type without generic
+
+
+
+const Title: FC<PropsTitle> = ({title} ) => <h1>{title}</h1> // Using type inside FC with generic
+
+export const App: FC = () => <Title title='HELLO TYPESCRIPT'/>
+
+

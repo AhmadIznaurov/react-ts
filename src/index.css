@@ -14,14 +14,14 @@ code {
 
 .App {
   text-align: center;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
-.App > p {
+.App  {
   color: red;
   font-size: 22px;
 }
 
-.App > p:hover {
+.App:hover {
   color: orange;
 }
